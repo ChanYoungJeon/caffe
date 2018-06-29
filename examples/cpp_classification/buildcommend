@@ -1,0 +1,7 @@
+./build/examples/cpp_classification/classification.bin examples/mnist/lenet.prototxt examples/mnist/lenet_iter_10000.caffemodel examples/mnist/mnist_mean.binaryproto examples/mnist/labels.txt examples/mnist/test2.jpg
+
+classification_mnist.cpp -> mean값 없앤거
+classification.cpp -> mean값 있는 것 tools/compute_image_mean이라는 파일로 mean값 생성 
+
+build/tools/compute_image_mean mnist_train_lmdb mnist_mean.binaryproto
+
