@@ -215,7 +215,7 @@ void Classifier::Preprocess(const cv::Mat& img,
   
   
     cv::Mat sample_normalized;
-    cv::Mat avgimg(img.rows, img.cols, CV_32FC3, cv::Scalar(93.5940,104.7624,129.1863));
+    cv::Mat avgimg(input_geometry_, CV_32FC3, cv::Scalar(93.5940,104.7624,129.1863));
     cv::subtract(sample_float, avgimg, sample_normalized);
 
   /* This operation will write the separate BGR planes directly to the
