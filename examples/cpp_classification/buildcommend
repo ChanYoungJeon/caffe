@@ -5,3 +5,8 @@ classification.cpp -> mean값 있는 것 tools/compute_image_mean이라는 파�
 
 build/tools/compute_image_mean mnist_train_lmdb mnist_mean.binaryproto
 
+classification.cpp -> mean값 포함한 lenet Alexnet 파일
+classification_mnist.cpp -> mean값 뺀 lenet Alexnet 파일
+classification_vggface.cpp -> 임의로 받은 얼굴 비교 VGG_facenet 파일
+classification_vggfacename.cpp -> names.txt에 미리 학습된 유명 셀럽들의 얼굴 비교 파일
+

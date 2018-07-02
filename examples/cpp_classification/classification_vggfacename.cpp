@@ -214,7 +214,9 @@ void Classifier::Preprocess(const cv::Mat& img,
     sample_resized.convertTo(sample_float, CV_32FC1);
   
   
-  cv::Mat sample_normalized=sample_float*0.00390625;
+    cv::Mat sample_normalized;
+    cv::Mat avgimg(img.rows, img.cols, CV_32FC3, cv::Scalar(93.5940,104.7624,129.1863));
+    cv::subtract(sample_float, avgimg, sample_normalized);
 
   /* This operation will write the separate BGR planes directly to the
    * input layer of the network because it is wrapped by the cv::Mat
@@ -248,10 +250,8 @@ int main(int argc, char** argv) {
             << file << " ----------" << std::endl;
 
   cv::Mat img = cv::imread(file, -1);
-  cv::Mat imginv;
-  cv::bitwise_not(img, imginv);
   CHECK(!img.empty()) << "Unable to decode image " << file;
-  std::vector<Prediction> predictions = classifier.Classify(imginv);
+  std::vector<Prediction> predictions = classifier.Classify(img);
 
   /* Print the top N predictions. */
   for (size_t i = 0; i < predictions.size(); ++i) {
